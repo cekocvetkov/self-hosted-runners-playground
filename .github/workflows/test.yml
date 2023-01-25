@@ -13,11 +13,7 @@ jobs:
       
       - uses: azure/setup-kubectl@v2.0
         id: install
-        
-      - name: Cluster info
-        run: |
-          kubectl cluster-info
           
-      - name: Commands
+      - name: Command get pods
         run: |
-          kubectl get pods -n default 
+          kubectl get pods -n argocd 
