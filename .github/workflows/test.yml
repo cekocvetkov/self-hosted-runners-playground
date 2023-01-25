@@ -1,0 +1,23 @@
+name: Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  Test:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      
+      - uses: azure/setup-kubectl@v2.0
+        id: install
+        
+      - name: Cluster info
+        run: |
+          kubectl cluster-info
+          
+      - name: Commands
+        run: |
+          kubectl get pods -n default 
