@@ -1,19 +1,33 @@
-name: Test
-
+name: Actions Runner Controller Demo
 on:
   workflow_dispatch:
 
 jobs:
-  Test:
-    runs-on: self-hosted
-
+  Explore-GitHub-Actions:
+    # You need to use the INSTALLATION_NAME from the previous step
+    runs-on: arc-runner-set
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+    - run: | 
+        echo "🎉 This job uses runner scale set runners!"
+        kubectl get pods -n apps
+
+
+# name: Test
+
+# on:
+#   workflow_dispatch:
+
+# jobs:
+#   Test:
+#     runs-on: self-hosted
+
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v3
       
-      - uses: azure/setup-kubectl@v2.0
-        id: install
+#       - uses: azure/setup-kubectl@v2.0
+#         id: install
           
-      - name: Command get pods
-        run: |
-          kubectl get pods -n argocd 
+#       - name: Command get pods
+#         run: |
+#           kubectl get pods -n argocd 
