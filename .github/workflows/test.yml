@@ -7,6 +7,9 @@ jobs:
     # You need to use the INSTALLATION_NAME from the previous step
     runs-on: arc-runner-set
     steps:
+    - uses: azure/setup-kubectl@v2.0
+      id: install
+      
     - run: | 
         echo "🎉 This job uses runner scale set runners!"
         kubectl get pods -n apps
