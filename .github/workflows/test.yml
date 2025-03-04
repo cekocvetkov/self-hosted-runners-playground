@@ -9,6 +9,8 @@ jobs:
     steps:
     - uses: azure/setup-kubectl@v4
       id: install
+      with:
+        version: vv4.0.0
       
     - run: | 
         echo "🎉 This job uses runner scale set runners!"
